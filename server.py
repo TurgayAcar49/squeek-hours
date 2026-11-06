@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
-STATIC = ROOT / "static"
+STATIC = ROOT / "public"
 DB_PATH = ROOT / "data" / "app.db"
 API = "https://api.squeekchain.com"
 CHAIN_ID = "11155111"
