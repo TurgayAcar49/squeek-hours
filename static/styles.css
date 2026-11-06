@@ -1,0 +1,46 @@
+:root {
+  --bg: #090d16;
+  --card: #111827;
+  --lime: #a6ff5b;
+  --teal: #49d9cf;
+  --ink: #f5f7fa;
+  --muted: #8993a5;
+  color-scheme: dark;
+  font-family: "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: var(--lime); color: #102006; border-radius: 999px; min-height: 42px; padding: 0 16px; font-weight: 700; }
+.ghost { background: transparent; color: var(--ink); border: 1px solid rgba(245, 247, 250, 0.2); }
+.hidden { display: none !important; }
+.top, .who, .row, nav { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.top { justify-content: space-between; padding: 18px; }
+.mark { margin: 0; font-family: Palatino, Georgia, serif; font-size: 32px; }
+.slogan, .muted, article p, label { color: var(--muted); }
+nav button { background: transparent; color: var(--ink); border: 1px solid transparent; }
+nav button.on { border-color: var(--lime); color: var(--lime); }
+main { max-width: 980px; margin: 0 auto; padding: 0 18px 48px; }
+.clock { position: relative; border-radius: 24px; overflow: hidden; background: var(--card); }
+.clock img, .banner { width: 100%; height: 360px; object-fit: cover; display: block; }
+.clock.rest img { filter: saturate(0.35) brightness(0.55); }
+.clock.down img { filter: grayscale(0.8) brightness(0.7); }
+.hud { padding: 16px 18px 20px; }
+.state { margin: 0; color: var(--teal); letter-spacing: 0.08em; }
+.timer { margin: 4px 0; font-family: Palatino, Georgia, serif; font-size: 64px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
+article, dialog { background: var(--card); border-radius: 18px; padding: 16px; }
+h2 { margin: 0 0 8px; font-family: Palatino, Georgia, serif; font-weight: 500; }
+.big { font-size: 36px; color: var(--lime); margin: 8px 0; }
+label { display: block; margin: 8px 0; }
+input { width: 100%; margin-top: 4px; background: var(--bg); border: 1px solid rgba(245, 247, 250, 0.16); border-radius: 12px; padding: 10px 12px; }
+.banner { height: 220px; border-radius: 18px; margin-bottom: 12px; }
+ul, ol { padding-left: 18px; }
+dialog { border: 0; color: var(--ink); }
+dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+#auth-error { color: #ffb4b4; }
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+  .timer { font-size: 48px; }
+  .clock img { height: 240px; }
+}

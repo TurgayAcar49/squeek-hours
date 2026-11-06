@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Squeek Hours</title>
+  <meta name="description" content="Work together. Move the world. Focus rooms paced by Squeekchain.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="mark">Squeek Hours</p>
+      <p class="slogan">Work together. Move the world.</p>
+    </div>
+    <nav>
+      <button type="button" data-view="home">Home</button>
+      <button type="button" data-view="rooms">Rooms</button>
+      <button type="button" data-view="world">World</button>
+      <button type="button" data-view="expeditions">Expeditions</button>
+      <button type="button" data-view="board">Board</button>
+      <button type="button" data-view="profile">Profile</button>
+    </nav>
+    <div class="who">
+      <span id="who">Guest</span>
+      <button type="button" id="auth-open">Sign in</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="view-home" class="view">
+      <div class="clock" id="clock">
+        <img src="/art/hamster-clock.png" alt="Squeektoshi in the wheel.">
+        <div class="hud">
+          <p class="state" id="chain-state">Reading the chain…</p>
+          <p class="timer" id="timer">25:00</p>
+          <p id="chain-line">Confirmed settlement has not loaded.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article>
+          <h2>Start</h2>
+          <p id="session-note">A session is kept on the server. Leaving the tab does not invent minutes.</p>
+          <div class="row">
+            <button type="button" id="start-25">25 minutes</button>
+            <button type="button" id="start-50">50 minutes</button>
+            <button type="button" id="cancel" class="ghost hidden">Cancel</button>
+          </div>
+        </article>
+        <article>
+          <h2>Today</h2>
+          <p class="big" id="today">0</p>
+          <p>community focus minutes from finished sessions</p>
+          <p id="live-count">0 people in rooms right now</p>
+        </article>
+        <article>
+          <h2>Expedition</h2>
+          <p id="mission-name">Mission 001</p>
+          <p id="mission-bar"></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="view-rooms" class="view hidden">
+      <h2>Focus rooms</h2>
+      <div id="room-list" class="grid"></div>
+      <article id="room-panel" class="hidden">
+        <h2 id="room-name">Room</h2>
+        <p id="room-goal"></p>
+        <ul id="room-people"></ul>
+        <label>Working on <input id="room-focus" maxlength="80"></label>
+        <ul id="room-log"></ul>
+        <form id="room-form">
+          <input id="room-text" maxlength="140" placeholder="A short note">
+          <button type="submit">Send</button>
+        </form>
+      </article>
+      <article>
+        <h2>Private room</h2>
+        <form id="private-form">
+          <input id="private-name" maxlength="40" placeholder="Room name" required>
+          <input id="private-goal" maxlength="80" placeholder="Goal">
+          <button type="submit">Create</button>
+        </form>
+        <p id="private-result"></p>
+        <form id="invite-form">
+          <input id="invite-slug" placeholder="Room code" required>
+          <input id="invite-code" placeholder="Invite" required>
+          <button type="submit">Join private</button>
+        </form>
+      </article>
+    </section>
+
+    <section id="view-world" class="view hidden">
+      <img class="banner" src="/art/focus-room.jpg" alt="The shared burrow.">
+      <h2 id="world-name">The First Burrow</h2>
+      <p id="world-copy"></p>
+    </section>
+
+    <section id="view-expeditions" class="view hidden">
+      <h2>Community expedition</h2>
+      <p>People's sessions and the hamster's settled rounds are separate counts.</p>
+      <div id="expedition"></div>
+    </section>
+
+    <section id="view-board" class="view hidden">
+      <img class="banner" src="/art/focus-league.png" alt="Focus league desk.">
+      <h2>Focus league</h2>
+      <p>Ranks come from finished sessions. Focus XP is not SQK.</p>
+      <ol id="leaders"></ol>
+    </section>
+
+    <section id="view-profile" class="view hidden">
+      <h2 id="profile-name">Profile</h2>
+      <p id="profile-stats"></p>
+      <div id="themes" class="row"></div>
+      <ul id="badges"></ul>
+      <button type="button" id="share" class="ghost">Download share card</button>
+    </section>
+  </main>
+
+  <dialog id="auth">
+    <form id="auth-form">
+      <h2>Sign in</h2>
+      <label>Username <input name="username" required minlength="3" maxlength="20"></label>
+      <label>Password <input name="password" type="password" required minlength="8"></label>
+      <div class="row">
+        <button type="submit">Sign in</button>
+        <button type="button" id="register">Create account</button>
+        <button type="button" id="auth-close" class="ghost">Close</button>
+      </div>
+      <p id="auth-error"></p>
+    </form>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
